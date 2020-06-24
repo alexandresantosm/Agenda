@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.hibernate.ObjectNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.flf.agenda.domains.Contato;
@@ -12,6 +13,7 @@ import br.com.flf.agenda.repositories.ContatoRepository;
 @Service
 public class ContatoService {
 
+	@Autowired
 	private ContatoRepository contatoRepository;
 	
 	public Contato find(Integer id) {
