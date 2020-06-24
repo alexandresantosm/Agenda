@@ -7,6 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Email;
+
+
 
 @Entity
 @Table(name = "contatos")
@@ -18,8 +22,14 @@ public class Contato implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
+	@NotEmpty(message = "O nome não pode ser nulo.")
 	private String nome;
+	
+	@NotEmpty(message = "O telefone não pode ser nulo.")
 	private String telefone;
+	
+	@Email(message = "Informe um e-mail válido.")
+	@NotEmpty(message = "O email não pode ser nulo.")
 	private String email;
 
 	public Contato() {
